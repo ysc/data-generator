@@ -20,7 +20,7 @@ import java.util.Map;
 public class DayDimensionGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger(DayDimensionGenerator.class);
 
-    public static List<String> generate(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay, int batchSize){
+    public static List<String> generate(int startYear, int startMonth, int startDay, int batchSize){
         List<String> dayStrs = new ArrayList<>();
         Connection con = MySQLUtils.getConnection();
         if(con == null){
@@ -32,7 +32,7 @@ public class DayDimensionGenerator {
             con.setAutoCommit(false);
             String sql = "insert into day_dimension (day_str, dayofyear, dayofweek, weekofyear, month, dayofmonth, quarter, year) values(?, ?, ?, ?, ?, ?, ?, ?);";
             pst = con.prepareStatement(sql);
-            List<Map<String, Object>> dayData = getDayData(startYear, startMonth, startDay, endYear, endMonth, endDay);
+            List<Map<String, Object>> dayData = getDayData(startYear, startMonth, startDay);
             LOGGER.info("天维度数据条数: {}", dayData.size());
             for(int i=0; i<dayData.size(); i++){
                 Map<String, Object> map = dayData.get(i);
@@ -62,10 +62,10 @@ public class DayDimensionGenerator {
         return dayStrs;
     }
 
-    private static List<Map<String, Object>> getDayData(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay){
+    private static List<Map<String, Object>> getDayData(int startYear, int startMonth, int startDay){
         List<Map<String, Object>> data = new ArrayList<>();
         LocalDateTime start = LocalDateTime.of(startYear, startMonth, startDay, 0, 0, 0, 0);
-        LocalDateTime end = LocalDateTime.of(endYear, endMonth, endDay, 0, 0, 0, 0);
+        LocalDateTime end = LocalDateTime.now();
         while(start.isBefore(end)) {
             String date = TimeUtils.toString(start, "yyyy-MM-dd");
             int dayofweek = start.getDayOfWeek().getValue();
@@ -96,6 +96,6 @@ public class DayDimensionGenerator {
 
     public static void main(String[] args) {
         MySQLUtils.clean("day_dimension");
-        generate(2000, 1, 1, 2018, 4, 18, 1000);
+        generate(2000, 1, 1, 1000);
     }
 }

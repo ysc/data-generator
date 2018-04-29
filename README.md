@@ -92,13 +92,14 @@
      
 四、在当前目录下的config.txt文件中指定配置:
 
+    #新增数据是MySQL批量提交记录数量
     batchSize=1000
+    #订单时间开始年份
     startYear=2000
+    #订单时间开始月份
     startMonth=1
+    #订单时间开始天数
     startDay=1
-    endYear=2018
-    endMonth=4
-    endDay=18
     #客户数
     customerCount=5000
     #销售数

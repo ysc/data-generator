@@ -33,13 +33,10 @@ public class Generator {
         int startYear = Config.getIntValue("startYear") == -1 ? 2000 : Config.getIntValue("startYear");
         int startMonth = Config.getIntValue("startMonth") == -1 ? 1 : Config.getIntValue("startMonth");
         int startDay = Config.getIntValue("startDay") == -1 ? 1 : Config.getIntValue("startDay");
-        int endYear = Config.getIntValue("endYear") == -1 ? 2018 : Config.getIntValue("endYear");
-        int endMonth = Config.getIntValue("endMonth") == -1 ? 4 : Config.getIntValue("endMonth");
-        int endDay = Config.getIntValue("endDay") == -1 ? 18 : Config.getIntValue("endDay");
 
         //区域数
         int areaCount = AreaGenerator.generate();
-        List<String> dayStrs = DayDimensionGenerator.generate(startYear, startMonth, startDay, endYear, endMonth, endDay, batchSize);
+        List<String> dayStrs = DayDimensionGenerator.generate(startYear, startMonth, startDay, batchSize);
         //客户数
         int customerCount = Config.getIntValue("customerCount") == -1 ? 5000 : Config.getIntValue("customerCount");
         //销售数
