@@ -2,7 +2,9 @@
 
 如果你在从事大数据BI的工作，想对比一下MySQL、GreenPlum、Elasticsearch、Hive、Presto、Impala、Drill、HAWQ、Druid、Pinot、Kylin、ClickHouse等不同实现方案之间的表现，那你就需要一份标准的数据进行测试，这个开源项目就是为了生成这样的标准数据。
 
-数据模型：src/main/resources/数据模型.png
+数据模型：
+
+![dashboard](src/main/resources/数据模型.png)
 
 一、编译程序:
 
