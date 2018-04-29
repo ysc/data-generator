@@ -29,7 +29,7 @@ public class ContractDetailGenerator {
         ResultSet rs = null;
         try {
             con.setAutoCommit(false);
-            String sql = "insert into contract_detail (id, item_id, item_quantity, price, contract_id, sign_day) values(?, ?, ?, ?, ?, ?);";
+            String sql = "insert into contract_detail (id, item_id, item_quantity, detail_price, contract_id, sign_day) values(?, ?, ?, ?, ?, ?);";
             pst = con.prepareStatement(sql);
             int contractDetailId = 1;
             for(int j=1; j<contractCount; j++) {
@@ -46,12 +46,12 @@ public class ContractDetailGenerator {
                     }
                     itemUsed.add(item_id);
                     int item_quantity = new Random(System.nanoTime()).nextInt(itemQuantityLimit) + 1;
-                    float price = items.get(item_id) * item_quantity;
-                    totalPrice += price;
+                    float detail_price = items.get(item_id) * item_quantity;
+                    totalPrice += detail_price;
                     pst.setInt(1, contractDetailId++);
                     pst.setInt(2, item_id);
                     pst.setInt(3, item_quantity);
-                    pst.setFloat(4, price);
+                    pst.setFloat(4, detail_price);
                     pst.setInt(5, contractId);
                     pst.setString(6, dayStr);
                     pst.addBatch();

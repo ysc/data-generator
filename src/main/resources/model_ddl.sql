@@ -80,7 +80,7 @@ CREATE TABLE `contract_detail` (
   `id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `item_quantity` int(11) NOT NULL,
-  `price` decimal(10,0) NOT NULL,
+  `detail_price` decimal(10,0) NOT NULL,
   `contract_id` int(11) NOT NULL,
   `sign_day` varchar(19) NOT NULL,
   PRIMARY KEY (`id`),

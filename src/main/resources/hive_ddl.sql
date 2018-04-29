@@ -19,7 +19,7 @@ CREATE TABLE `contract_detail` (
   `id` int ,
   `item_id` int ,
   `item_quantity` int ,
-  `price` float ,
+  `detail_price` float ,
   `contract_id` int,
   `sign_day` varchar(19)
 ) row format delimited fields terminated by ',' stored as textfile;
