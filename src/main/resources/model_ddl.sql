@@ -86,8 +86,10 @@ CREATE TABLE `contract_detail` (
   PRIMARY KEY (`id`),
   KEY `item_id` (`item_id`),
   KEY `contract_id` (`contract_id`),
+  KEY `sign_day` (`sign_day`),
   CONSTRAINT `contract_detail_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`),
-  CONSTRAINT `contract_detail_ibfk_2` FOREIGN KEY (`contract_id`) REFERENCES `contract` (`id`)
+  CONSTRAINT `contract_detail_ibfk_2` FOREIGN KEY (`contract_id`) REFERENCES `contract` (`id`),
+  CONSTRAINT `contract_detail_ibfk_3` FOREIGN KEY (`sign_day`) REFERENCES `day_dimension` (`day_str`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
