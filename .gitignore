@@ -1,0 +1,13 @@
+.settings/
+.classpath
+.project
+target/
+logs/
+.idea/
+data-generator.iml
+data-generator.ipr
+data-generator.iws
+audit_data.sh
+.gradle/
+build/
+*.sh
