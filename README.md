@@ -4,7 +4,7 @@
 
 数据模型：src/main/resources/数据模型.png
 
-![dashboard](src/main/resources/数据模型.png)
+![src/main/resources/数据模型.png](src/main/resources/数据模型.png)
 
 一、编译程序:
 
