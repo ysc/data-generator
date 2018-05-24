@@ -1,6 +1,6 @@
 ### 数据生成器
 
-如果你在从事大数据BI的工作，想对比一下MySQL、GreenPlum、Elasticsearch、Hive、Spark SQL、Presto、Impala、Drill、HAWQ、Druid、Pinot、Kylin、ClickHouse等不同实现方案之间的表现，那你就需要一份标准的数据进行测试，这个开源项目就是为了生成这样的标准数据。
+如果你在从事大数据BI的工作，想对比一下MySQL、GreenPlum、Elasticsearch、Hive、Spark SQL、Presto、Impala、Drill、HAWQ、Druid、Pinot、Kylin、ClickHouse、Kudu等不同实现方案之间的表现，那你就需要一份标准的数据进行测试，这个开源项目就是为了生成这样的标准数据。
 
 数据模型：src/main/resources/数据模型.png
 
